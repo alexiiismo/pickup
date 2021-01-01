@@ -1,0 +1,118 @@
+		<!-- SERVICE -->
+		<section id="service">
+
+
+			<h3 class="headline scroll-animated-from-right">What I can do for you.</h3>
+			<!-- SERVICE LIST -->
+			<ul class="services-list">
+			   
+			   
+				<li class="scroll-animated-from-right"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Concept & Strategy</li>
+				<li class="scroll-animated-from-right"><i class="fa fa-eye" aria-hidden="true"></i>Design Direction</li>
+				<li class="scroll-animated-from-right"><i class="fa fa-database" aria-hidden="true"></i>Product Design</li>
+				<li class="scroll-animated-from-right"><i class="fa fa-television" aria-hidden="true"></i>Web Design</li>
+				<li class="scroll-animated-from-right"><i class="fa fa-square-o" aria-hidden="true"></i>UI & UX Design</li>
+				<li class="scroll-animated-from-right"></li>
+				
+				
+			</ul>
+			<!-- /SERVICE LIST -->
+
+
+		</section>
+		<!-- /SERVICE -->
+		
+		
+				<!-- INTRO -->
+		<section id="intro">
+
+
+			<!-- CONTAINER MID -->
+			<div class="container-mid">
+
+			   
+				<!-- ANIMATION CONTAINER -->
+				<div class="animation-container animation-fade-down" data-animation-delay="0">
+				
+					<h1>I¡¯m John Miller,</h1>
+				
+				</div>
+				<!-- /ANIMATION CONTAINER -->
+				
+				
+				<!-- ANIMATION CONTAINER -->
+				<div class="animation-container animation-fade-left" data-animation-delay="300">
+				   
+					<p class="subline">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc condimentum lacinia molestie. Phasellus vehicula ornare odio, blandit commodo nisl dapibus vel. Sed vel fermentum elit.</p>
+						<button id="clearmap" class="btn">ClearMap</button>
+						
+						<div class="input-item">
+						  <button id="random-zoomcenter-btn" class="btn">Route</button>
+						</div>
+
+						<div class="input-item">
+						  <button id="setcenter" class="btn" >Center</button>
+						</div>
+						
+
+				</div>
+				<!-- /ANIMATION CONTAINER -->
+				
+				
+				<!-- ANIMATION CONTAINER -->
+				<div class="animation-container animation-fade-up" data-animation-delay="600">
+				   
+					<a href="#Discussion" class="smooth-scroll">Learn More<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+					
+				</div>
+				<!-- /ANIMATION CONTAINER -->
+
+
+			</div>
+			<!-- /CONTAINER MID -->
+
+
+		</section>
+		<!-- /INTRO -->
+		
+		
+					
+			<select id = 'select_ori' >
+				<option value="one">one</option>
+				<option value="two">two</option>
+			</select>
+
+			
+			
+		var marker0 = new AMap.Marker({
+			position: new AMap.LngLat(113.943061,22.547772),
+			title: 'GPS',
+			icon: 'https://gisedu.itc.utwente.nl/student/s6040071/pointer.png'
+		});
+		
+		var marker1 = new AMap.Marker({
+			position: new AMap.LngLat(113.945278,22.551923),
+			title: 'A1',
+			icon: 'https://gisedu.itc.utwente.nl/student/s6040071/pointer.png'
+		});
+
+		var marker2 = new AMap.Marker({
+			position: new AMap.LngLat(113.938707,22.546275),
+			title: 'A2',
+			icon: 'https://gisedu.itc.utwente.nl/student/s6040071/pointer.png'
+		});
+
+		var marker3 = new AMap.Marker({
+			position: new AMap.LngLat(113.939361,22.549669), 
+			title: 'A3',
+			icon: 'https://gisedu.itc.utwente.nl/student/s6040071/pointer.png'
+		});	
+		
+		var marker4 = new AMap.Marker({
+			position: new AMap.LngLat(113.942099,22.548410), 
+			title: 'Original',
+			icon: 'https://gisedu.itc.utwente.nl/student/s6040071/pointer.png'
+		});
+
+		var markerList = [marker0,marker1,marker2,marker3,marker4];
+		map.add(markerList);

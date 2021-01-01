@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+<!-- META -->
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<!-- PAGE TITLE -->
+<title>Optimal PDPs for Urban Ridesharing - STAMP</title>
+
+<!-- STYLE -->
+<style>
+#container {
+  width: 100%;
+  height: 100%;
+}
+</style>
+
+<!-- MAP -->
+<script src="https://webapi.amap.com/maps?v=1.4.15&key=3b24fa1bf6eaba41e9a259197de88c18&plugin=AMap.Driving"></script>
+<script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script>
+	
+<!-- FAVICON -->
+<link rel="shortcut icon" href="assets/img/favicon.png">
+
+<!-- FONTS -->
+<link href="https://fonts.googleapis.com/css?family=Abril+Fatface%7CArapey&amp;subset=latin-ext" rel="stylesheet">
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet" type="text/css" href="assets/css/plugins.css">
+<link rel="stylesheet" type="text/css" href="assets/css/main.css">
+<link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+
+</head>
+
+
+<body>
+
+
+<!-- PRELOADER -->
+<div class="preloader">
+   
+	<div class="spinner"></div>
+	
+</div>
+<!-- /PRELOADER -->
+
+
+<!-- IMAGE CONTAINER -->
+<div class="image-container">
+<div id="container"></div>
+
+</div>
+<!-- /IMAGE CONTAINER -->
+
+
+<!-- CONTENT AREA -->
+<div class="content-area">
+
+
+	<!-- CONTENT AREA INNER --> 
+	<div class="content-area-inner">
+
+		<!-- Title -->
+		<section id="Title">
+
+
+			<!-- CONTAINER MID -->
+			<div class="container-mid">
+
+			   
+				<!-- ANIMATION CONTAINER -->
+				<div class="animation-container animation-fade-down" data-animation-delay="0">
+					<br>
+					<br>
+					<h1><font face="Helvetica"><b>AN APPROACH TO DETERMINE OPTIMAL PICKUP AND DROP-OFF POINTS FOR URBAN RIDESHARING</b></font></h1>
+					<br>
+					<p class="scroll-animated-from-right"><b>Presentor</b></p>
+					<p class="scroll-animated-from-right">Junhui Mao</p>
+					<p class="scroll-animated-from-right"><b>Supervisors</b></p>
+					<p class="scroll-animated-from-right">Dr. J.M. Morales Guarin</p>
+					<p class="scroll-animated-from-right">Dr. ir. R.L.G. Lemmens</p>
+					<br>
+				</div>
+				<!-- /ANIMATION CONTAINER -->
+				
+				<!-- ANIMATION CONTAINER -->
+				<div class="animation-container animation-fade-up" data-animation-delay="600">
+					<a href="#problem" class="smooth-scroll"><font face="Times" size="5px">Let's Start!</font><i class="fa fa-angle-down" aria-hidden="true"></i></a>
+				</div>
+				<!-- /ANIMATION CONTAINER -->
+
+
+			</div>
+			<!-- /CONTAINER MID -->
+
+
+		</section>
+		<!-- /Title -->
+
+
+		<!-- problem -->
+		<section id="problem">
+
+			<h3 class="headline scroll-animated-from-right">Problem Statement</h3>
+			<p class="scroll-animated-from-right">Drivers need to make extra detours while the location of passenger is with lower spatial accessibility. And when it comes to multiple passengers in a single ride, the cost of the extra detours would become less acceptable.</p>
+			<br>
+			<p class="scroll-animated-from-right">The flexible pickup and drop-off points are able to reduce time cost and transportation anxiety by avoiding detours and heavy traffic sections, but not all the nearby locations can have positive effects on driving routs.</p>
+			<br>
+			
+			<h3 class="headline scroll-animated-from-right">Objective</h3>
+			<p class="scroll-animated-from-right">To design a reality-based approach to determine the optimal pickup and drop-off points that can effectively improve the driving rout in urban ridesharing.</p>
+
+			<!-- ANIMATION CONTAINER -->
+			<div class="animation-container animation-fade-up" data-animation-delay="600">
+				<br>
+				<br>
+				<a href="#tool" class="smooth-scroll"><font face="Times">Tool & Study Area</font><i class="fa fa-angle-down" aria-hidden="true"></i></a>
+			</div>
+			<!-- /ANIMATION CONTAINER -->
+		
+		</section>
+		<!-- /problem -->		
+	
+
+		<!-- tool -->
+		<section id="tool">
+
+			<h3 class="headline scroll-animated-from-right">Tool</h3>
+			
+			<p class="scroll-animated-from-right"><b>Amap-API</b></p>
+			<br>
+			<p class="scroll-animated-from-right">Projection: Web Mercator</p>
+			<p class="scroll-animated-from-right">Coordinate System: GCJ-02</p>
+			<br>
+			<p class="scroll-animated-from-right">Process: Web Service API</p>
+			<p class="scroll-animated-from-right">Visualization: JS API</p>
+			<br>
+			<div class="input-item">
+				<button class="btn" onclick="toggle()">Traffic Layer</button>
+			</div>
+			<br>
+			<h3 class="scroll-animated-from-right">Study Area</h3>
+			<p class="scroll-animated-from-right"><button id="setnanshan" style="width:275px; height:40px; background-color:#FFFFFF; border:0px;">Nanshan and BaoAn District,</button><button id="setshenzhen" style="width:100px; height:40px; background-color:#FFFFFF; border:0px;">Shenzhen</button>,<button id="setchina" style="width:80px; height:40px; background-color:#FFFFFF; border:0px;">China</button></p>
+
+			
+			<!-- ANIMATION CONTAINER -->
+			<div class="animation-container animation-fade-up" data-animation-delay="600">
+				<br>
+				<br>
+				<a href="#design" class="smooth-scroll"><font face="Times">General Design</font><i class="fa fa-angle-down" aria-hidden="true"></i></a>
+			</div>
+			<!-- /ANIMATION CONTAINER -->
+			
+		</section>
+		<!-- /tool -->		
+
+
+		<!-- design -->
+		<section id="design">
+
+			<h3 class="headline scroll-animated-from-right">General Design</h3>
+			<div text align=left>
+				<img src="image/design.jpg" width="120%" ></img>
+			</div>
+			<br>
+			<br>
+			<p class="scroll-animated-from-right"></p>
+
+			<!-- ANIMATION CONTAINER -->
+			<div class="animation-container animation-fade-up" data-animation-delay="600">
+				<br>
+				<br>
+				<a href="#process" class="smooth-scroll"><font face="Times">Process</font><i class="fa fa-angle-down" aria-hidden="true"></i></a>
+			</div>
+			<!-- /ANIMATION CONTAINER -->
+			
+		</section>
+		<!-- /design -->	
+
+
+		<!-- process -->
+		<section id="process">
+
+		
+		
+			<h3 class="headline scroll-animated-from-right">Process</h3>
+			<p class="scroll-animated-from-right">Step 1</p>
+			<p class="scroll-animated-from-right">Imagine that you were a <b>passenger</b> who started to request a shared ride by smartphone.</p>
+			<button id="gpsposition" style="width:200px; height:40px; background-color:#FFFFFF; border:20px;"><font size="4px"><u>GPS Position</u></font></button>
+			<p class="scroll-animated-from-right">Step 2</p>
+			<p class="scroll-animated-from-right">Suppose you're in a building, then the system would relocate your position to the entry point. Of course it would do the same thing to your entered desitination.</p>
+			<button id="orginlocation" style="width:200px; height:40px; background-color:#FFFFFF; border:20px;"><font size="4px"><u>Original Point</u></font></button>
+			<p class="scroll-animated-from-right">Step 3</p>
+			<p class="scroll-animated-from-right">If you thought it's okay to walk a bit to a pickup point, the system would show you the alternative PDPs.</p>
+			<button id="alternativep" style="width:200px; height:40px; background-color:#FFFFFF; border:20px;"><font size="4px"><u>Alternative PDPs</u></font></button>
+			<br>
+			<br>
+			<p class="scroll-animated-from-right">=====================================</p>
+			<p class="scroll-animated-from-right">Q: But how can we know which PDPs are the best one?</p>
+			<p class="scroll-animated-from-right">A: Try all the alternatives and choose the time-optimal one.</p>
+			<button id="processpdp" style="width:200px; height:40px; background-color:#FFFFFF; border:20px;"><font size="4px"><u>PDPs</u></font></button>
+			<button id="proorirout" style="width:200px; height:40px; background-color:#FFFFFF; border:20px;"><font size="4px"><u>Original Route</u></font></button><br>
+			<p><font size="4px">Alternative Routes:</font><button id="prooriaba" style="width:100px; height:40px; background-color:#FFFFFF; border:20px;"><font size="4px"><u>A1 to B1</u></font></button>
+			<button id="prooriabb" style="width:100px; height:40px; background-color:#FFFFFF; border:20px;"><font size="4px"><u>A1 to B2</u></font></button>
+			... <button id="proclearmap" style="width:100px; height:40px; background-color:#FFFFFF; border:20px;"><font size="4px"><u>A3 to B3</u></font></button></p>
+			<p class="scroll-animated-from-right">=====================================</p>
+			<br>
+			<p class="scroll-animated-from-right">Step 4</p>
+			<p class="scroll-animated-from-right">Imagine that you were a <b>driver</b> who got a list of 3 passengers and their original points.</p>
+			<button id="prolist" style="width:200px; height:40px; background-color:#FFFFFF; border:20px;"><font size="4px"><u>A list of original points</u></font></button>
+			<p class="scroll-animated-from-right">Step 5</p>
+			<p class="scroll-animated-from-right">The system would help you to calculate the time-optimal sequence. Be careful, the pickup point should be ahead of the dropoff point. </p>
+			<button id="proorder" style="width:200px; height:40px; background-color:#FFFFFF; border:20px;"><font size="4px"><u>Optimal Sequence</u></font></button>
+			<p class="scroll-animated-from-right">Step 6</p>
+			<p class="scroll-animated-from-right">Try all the alternatives and choose the time-optimal one. </p>
+			<button id="proori" style="width:200px; height:40px; background-color:#FFFFFF; border:20px;"><font size="4px"><u>Original Route</u></font></button>
+			<button id="proopt" style="width:200px; height:40px; background-color:#FFFFFF; border:20px;"><font size="4px"><u>Optimal Route</u></font></button>			
+			
+			<!-- ANIMATION CONTAINER -->
+			<div class="animation-container animation-fade-up" data-animation-delay="600">
+				<br>
+				<br>
+				<a href="#samples" class="smooth-scroll"><font face="Times">Samples</font><i class="fa fa-angle-down" aria-hidden="true"></i></a>
+			</div>
+			<!-- /ANIMATION CONTAINER -->
+			
+		</section>
+		<!-- /process -->	
+
+
+		<!-- samples -->
+		<section id="samples">
+		
+		<h3 class="headline scroll-animated-from-right">Samples</h3>		
+		
+		<div text align=center>
+			<p class="scroll-animated-from-right"> Sample # <button id="origin" style="width:20px; height:20px; background-color:#3183FF; border:0px; border-radius:50%;"></button> Original Route <button id="origin" style="width:20px; height:20px; background-color:#AB0A6F; border:0px; border-radius:50%;"></button> Optimal Route</p>
+			<br>
+			<p class="scroll-animated-from-right">
+			<font size='4'> 01 </font><button id='ori1' style='width:20px; height:20px; background-color:#3183FF; border:0px; border-radius:50%;'></button> 
+			<button id='opt1' style='width:20px; height:20px; background-color:#AB0A6F; border:0px; border-radius:50%;'></button> 
+			<font size='4'> 02 </font><button id='ori2' style='width:20px; height:20px; background-color:#3183FF; border:0px; border-radius:50%;'></button> 
+			<button id='opt2' style='width:20px; height:20px; background-color:#AB0A6F; border:0px; border-radius:50%;'></button> 
+			<font size='4'> 03 </font><button id='ori3' style='width:20px; height:20px; background-color:#3183FF; border:0px; border-radius:50%;'></button> 
+			<button id='opt3' style='width:20px; height:20px; background-color:#AB0A6F; border:0px; border-radius:50%;'></button> 
+			<font size='4'> 04 </font><button id='ori4' style='width:20px; height:20px; background-color:#3183FF; border:0px; border-radius:50%;'></button> 
+			<button id='opt4' style='width:20px; height:20px; background-color:#AB0A6F; border:0px; border-radius:50%;'></button> 
+			<font size='4'> 05 </font><button id='ori5' style='width:20px; height:20px; background-color:#3183FF; border:0px; border-radius:50%;'></button> 
+			<button id='opt5' style='width:20px; height:20px; background-color:#AB0A6F; border:0px; border-radius:50%;'></button> 
+			<font size='4'> 06 </font><button id='ori6' style='width:20px; height:20px; background-color:#3183FF; border:0px; border-radius:50%;'></button> 
+			<button id='opt6' style='width:20px; height:20px; background-color:#AB0A6F; border:0px; border-radius:50%;'></button> 
+			</p>
+			<p class="scroll-animated-from-right">
+			<font size='4'> 07 </font><button id='ori7' style='width:20px; height:20px; background-color:#3183FF; border:0px; border-radius:50%;'></button> 
+			<button id='opt7' style='width:20px; height:20px; background-color:#AB0A6F; border:0px; border-radius:50%;'></button> 
+			<font size='4'> 08 </font><button id='ori8' style='width:20px; height:20px; background-color:#3183FF; border:0px; border-radius:50%;'></button> 
+			<button id='opt8' style='width:20px; height:20px; background-color:#AB0A6F; border:0px; border-radius:50%;'></button> 
+			<font size='4'> 09 </font><button id='ori9' style='width:20px; height:20px; background-color:#3183FF; border:0px; border-radius:50%;'></button> 
+			<button id='opt9' style='width:20px; height:20px; background-color:#AB0A6F; border:0px; border-radius:50%;'></button> 
+			<font size='4'> 10 </font><button id='ori10' style='width:20px; height:20px; background-color:#3183FF; border:0px; border-radius:50%;'></button> 
+			<button id='opt10' style='width:20px; height:20px; background-color:#AB0A6F; border:0px; border-radius:50%;'></button> 
+			<font size='4'> 11 </font><button id='ori11' style='width:20px; height:20px; background-color:#3183FF; border:0px; border-radius:50%;'></button> 
+			<button id='opt11' style='width:20px; height:20px; background-color:#AB0A6F; border:0px; border-radius:50%;'></button> 
+			<font size='4'> 12 </font><button id='ori12' style='width:20px; height:20px; background-color:#3183FF; border:0px; border-radius:50%;'></button> 			
+			<button id='opt12' style='width:20px; height:20px; background-color:#AB0A6F; border:0px; border-radius:50%;'></button> 		
+			</p>
+			<p class="scroll-animated-from-right">
+			<font size='4'> 13 </font><button id='ori13' style='width:20px; height:20px; background-color:#3183FF; border:0px; border-radius:50%;'></button> 
+			<button id='opt13' style='width:20px; height:20px; background-color:#AB0A6F; border:0px; border-radius:50%;'></button> 
+			<font size='4'> 14 </font><button id='ori14' style='width:20px; height:20px; background-color:#3183FF; border:0px; border-radius:50%;'></button> 
+			<button id='opt14' style='width:20px; height:20px; background-color:#AB0A6F; border:0px; border-radius:50%;'></button> 
+			<font size='4'> 15 </font><button id='ori15' style='width:20px; height:20px; background-color:#3183FF; border:0px; border-radius:50%;'></button> 
+			<button id='opt15' style='width:20px; height:20px; background-color:#AB0A6F; border:0px; border-radius:50%;'></button> 
+			<font size='4'> 16 </font><button id='ori16' style='width:20px; height:20px; background-color:#3183FF; border:0px; border-radius:50%;'></button> 
+			<button id='opt16' style='width:20px; height:20px; background-color:#AB0A6F; border:0px; border-radius:50%;'></button> 
+			<font size='4'> 17 </font><button id='ori17' style='width:20px; height:20px; background-color:#3183FF; border:0px; border-radius:50%;'></button> 
+			<button id='opt17' style='width:20px; height:20px; background-color:#AB0A6F; border:0px; border-radius:50%;'></button> 
+			<font size='4'> 18 </font><button id='ori18' style='width:20px; height:20px; background-color:#3183FF; border:0px; border-radius:50%;'></button> 
+			<button id='opt18' style='width:20px; height:20px; background-color:#AB0A6F; border:0px; border-radius:50%;'></button> 
+			</p>
+			<p class="scroll-animated-from-right">
+			<font size='4'> 19 </font><button id='ori19' style='width:20px; height:20px; background-color:#3183FF; border:0px; border-radius:50%;'></button> 
+			<button id='opt19' style='width:20px; height:20px; background-color:#AB0A6F; border:0px; border-radius:50%;'></button> 
+			<font size='4'> 20 </font><button id='ori20' style='width:20px; height:20px; background-color:#3183FF; border:0px; border-radius:50%;'></button> 
+			<button id='opt20' style='width:20px; height:20px; background-color:#AB0A6F; border:0px; border-radius:50%;'></button> 
+			<font size='4'> 21 </font><button id='ori21' style='width:20px; height:20px; background-color:#3183FF; border:0px; border-radius:50%;'></button> 
+			<button id='opt21' style='width:20px; height:20px; background-color:#AB0A6F; border:0px; border-radius:50%;'></button> 
+			<font size='4'> 22 </font><button id='ori22' style='width:20px; height:20px; background-color:#3183FF; border:0px; border-radius:50%;'></button> 
+			<button id='opt22' style='width:20px; height:20px; background-color:#AB0A6F; border:0px; border-radius:50%;'></button> 
+			<font size='4'> 23 </font><button id='ori23' style='width:20px; height:20px; background-color:#3183FF; border:0px; border-radius:50%;'></button> 
+			<button id='opt23' style='width:20px; height:20px; background-color:#AB0A6F; border:0px; border-radius:50%;'></button> 
+			<font size='4'> 24 </font><button id='ori24' style='width:20px; height:20px; background-color:#3183FF; border:0px; border-radius:50%;'></button> 
+			<button id='opt24' style='width:20px; height:20px; background-color:#AB0A6F; border:0px; border-radius:50%;'></button> 
+			</p>
+			<p class="scroll-animated-from-right">
+			<font size='4'> 25 </font><button id='ori25' style='width:20px; height:20px; background-color:#3183FF; border:0px; border-radius:50%;'></button> 
+			<button id='opt25' style='width:20px; height:20px; background-color:#AB0A6F; border:0px; border-radius:50%;'></button> 
+			<font size='4'> 26 </font><button id='ori26' style='width:20px; height:20px; background-color:#3183FF; border:0px; border-radius:50%;'></button> 
+			<button id='opt26' style='width:20px; height:20px; background-color:#AB0A6F; border:0px; border-radius:50%;'></button> 
+			<font size='4'> 27 </font><button id='ori27' style='width:20px; height:20px; background-color:#3183FF; border:0px; border-radius:50%;'></button> 
+			<button id='opt27' style='width:20px; height:20px; background-color:#AB0A6F; border:0px; border-radius:50%;'></button> 
+			<font size='4'> 28 </font><button id='ori28' style='width:20px; height:20px; background-color:#3183FF; border:0px; border-radius:50%;'></button> 
+			<button id='opt28' style='width:20px; height:20px; background-color:#AB0A6F; border:0px; border-radius:50%;'></button> 
+			<font size='4'> 29 </font><button id='ori29' style='width:20px; height:20px; background-color:#3183FF; border:0px; border-radius:50%;'></button> 
+			<button id='opt29' style='width:20px; height:20px; background-color:#AB0A6F; border:0px; border-radius:50%;'></button> 
+			<font size='4'> 30 </font><button id='ori30' style='width:20px; height:20px; background-color:#3183FF; border:0px; border-radius:50%;'></button> 
+			<button id='opt30' style='width:20px; height:20px; background-color:#AB0A6F; border:0px; border-radius:50%;'></button> 
+			</p>
+		</div>
+		<div text align=center>
+			<br>
+			<button id="clearmap" class="btn">Clear Map</button>
+			<br><br>
+			<br><br><br>
+			
+			<table id="stable">
+				<caption><font face="Times"><b>Route Information / Metrics</b></font></caption>
+				<thead>
+					<tr>
+						<th>Routes
+						<th>Time(s)
+						<th>Distance(m)
+						<th>Traffic Lights
+						<th>Turns
+						<th>Sections
+						<th>Clear Sections
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Original
+						<td>
+						<td>
+						<td>
+						<td>
+						<td>
+						<td>
+					</tr>
+					<tr>
+						<td>Optimal
+						<td>
+						<td>
+						<td>
+						<td>
+						<td>
+						<td>						
+					</tr>
+				</tbody>
+			</table>
+			<div class="animation-container animation-fade-up" data-animation-delay="600">
+			<br>
+				<a href="#result" class="smooth-scroll"><font face="Times">Result</font><i class="fa fa-angle-down" aria-hidden="true"></i></a>
+			</div>		
+		
+		</div>	
+		</section>
+		<!-- /samples -->
+		
+
+		<!-- result -->
+		<section id="result">
+
+
+			<h3 class="headline scroll-animated-from-right">Results</h3>
+			<div text align=center>
+				<table>
+					<caption><font face="Times"><b>Reduction - Shared Ride</b></font></caption>
+					<thead>
+						<tr>
+							<th>Sta.
+							<th>Time
+							<th>Distance
+							<th>Traffic Lights
+							<th>Turns
+							<th>Sections
+							<th>Clear Rate
+					</thead>
+					<tbody>
+						<tr>
+							<td>Ratio of Positive
+							<td>80%
+							<td>50%
+							<td>36.7%
+							<td>96.7%
+							<td>96.7%
+							<td>-96.7%
+						<tr>
+							<td>Average
+							<td>8.85 (min)
+							<td>211.7 (m)
+							<td>-2.3
+							<td>19
+							<td>20.2
+							<td>-23.74%					
+
+					</tbody>
+				</table>
+				<br>
+				<table>
+					<caption><font face="Times"><b>Reduction - Individual Trip</b></font></caption>
+					<thead>
+						<tr>
+							<th>Sta.
+							<th>Riding Time
+							<th>Riding Distance
+							<th>Fee
+
+					</thead>
+					<tbody>
+						<tr>
+							<td>Ratio of Positive
+							<td>92.2%
+							<td>73.3%
+							<td>61.1%
+
+						<tr>
+							<td>Average
+							<td>4.49 (min)
+							<td>686 (m)
+							<td>1.88 yuan
+					</tbody>
+				</table>
+				<p><font face="Arial" size="3">Average Walking Time: 9.7 min</font></p><br><br>
+				
+				<div class="animation-container animation-fade-up" data-animation-delay="600">
+				<br>
+					<a href="#conclusion" class="smooth-scroll"><font face="Times">Conclusion</font><i class="fa fa-angle-down" aria-hidden="true"></i></a>
+				</div>
+			</div>
+		</section>
+		<!-- /result -->
+
+		
+		
+		<!-- Conclusion -->
+		<section id="conclusion">
+
+
+			<h3 class="headline scroll-animated-from-right">Conclusion</h3>
+			
+			<p class="scroll-animated-from-right"> The result presented that time, distance, detour, sections and clear rate of roads of the whole shared ride could be reduced if the passengers chose the PDPs provided by the proposed approach, however the for an individual trip for each passengers, the reduction in time-cost could not be guaranteed .</p>
+			
+			
+		</section>
+		<!-- /Conclusion -->
+
+		
+
+		<!-- thanks -->
+		<section id="thanks">
+		<div text align=center>
+			<h1>Thank you!</h1>
+		</div>
+		</section>
+		<!-- /FOOTER -->
+		
+		
+		<!-- FOOTER -->
+		<section id="footer">
+		<div text align=center>
+			<p><font size="3">FACULTY OF GEO-INFORMATION SCIENCE AND EARTH OBSERVATION  STAMP | S6040071 | JUN 2020</font></p>
+		</div>
+		</section>
+		<!-- /FOOTER -->
+
+
+	</div>
+	<!-- /CONTENT AREA INNER -->
+
+
+</div>
+<!-- /CONTENT AREA -->
+
+
+
+<!-- JAVASCRIPTS -->
+<script type="text/javascript" src="assets/js/map_t.js"></script>
+<script type="text/javascript" src="assets/js/plugins.js"></script>
+<script type="text/javascript" src="assets/js/main.js"></script>
+
+</body> 
+
+
+<style>
+
+	table {
+	 
+		 border-collapse: collapse;
+	 
+		 font-family: Futura, Arial, sans-serif;
+	 
+	}
+	 
+	caption {
+	 
+		 font-size: larger;
+	 
+		 text-align: center;
+	
+		 color: #000
+		 
+	}
+	 
+	th,td {
+	 
+		 padding: .65em;
+	 
+	}
+	 
+	th,td {
+	 
+	   border-bottom: 1px solid #000;
+	 
+	   border-top: 1px solid #000;
+	 
+	   text-align: center;
+	   
+	   color: #000
+	 
+	}
+
+</style>
+
+</html>
