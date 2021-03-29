@@ -36,7 +36,7 @@
 					log.success('Finished!')
 				}
 			} else {
-				log.error('Ooops£º' + result)
+				log.error('Ooopsï¼š' + result)
 			}
 		});
 
@@ -45,13 +45,13 @@
 
 			var startMarker = new AMap.Marker({
 				position: path[0],
-				icon: 'https://gisedu.itc.utwente.nl/student/s6040071/car_24px_1132259_easyicon.net.png',
+				icon: 'assets/img/car_24px_1132259_easyicon.net.png',
 				map: map
 			})
 
 			var endMarker = new AMap.Marker({
 				position: path[path.length - 3],
-				icon: 'https://gisedu.itc.utwente.nl/student/s6040071/Pedestrian_Crossing_32px_567163_easyicon.net.png',
+				icon: 'assets/img/Pedestrian_Crossing_32px_567163_easyicon.net.png',
 				map: map
 			})
 
@@ -71,7 +71,7 @@
 			map.setFitView([ startMarker, endMarker, routeLine ])
 		}
 
-		// DrivingRoute object£¬AMap.Polyline - path parameters
+		// DrivingRoute objectï¼ŒAMap.Polyline - path parameters
 		// Documentation https://lbs.amap.com/api/javascript-api/reference/route-search#m_DriveRoute
 		function parseRouteToPath(route) {
 			var path = []
@@ -90,43 +90,43 @@
 		var marker0 = new AMap.Marker({
 			position: new AMap.LngLat(a,b),
 			title: 'Dep',
-			icon: 'https://gisedu.itc.utwente.nl/student/s6040071/car_24px_1132259_easyicon.net.png'
+			icon: 'assets/img/car_24px_1132259_easyicon.net.png'
 		});
 		
 		var marker1 = new AMap.Marker({
 			position: new AMap.LngLat(113.890222,22.551852),
 			title: 'Way1',
-			icon: 'https://gisedu.itc.utwente.nl/student/s6040071/Pedestrian_Crossing_32px_567163_easyicon.net.png'
+			icon: 'assets/img/Pedestrian_Crossing_32px_567163_easyicon.net.png'
 		});
 
 		var marker2 = new AMap.Marker({
 			position: new AMap.LngLat(113.915059,22.536644),
 			title: 'Way2',
-			icon: 'https://gisedu.itc.utwente.nl/student/s6040071/Pedestrian_Crossing_32px_567163_easyicon.net.png'
+			icon: 'assets/img/Pedestrian_Crossing_32px_567163_easyicon.net.png'
 		});
 
 		var marker3 = new AMap.Marker({
 			position: new AMap.LngLat(113.921591,22.535562),
 			title: 'Way3',
-			icon: 'https://gisedu.itc.utwente.nl/student/s6040071/Pedestrian_Crossing_32px_567163_easyicon.net.png'
+			icon: 'assets/img/Pedestrian_Crossing_32px_567163_easyicon.net.png'
 		});	
 		
 		var marker4 = new AMap.Marker({
 			position: new AMap.LngLat(113.924319,22.527468),
 			title: 'Way4',
-			icon: 'https://gisedu.itc.utwente.nl/student/s6040071/Pedestrian_Crossing_32px_567163_easyicon.net.png'
+			icon: 'assets/img/Pedestrian_Crossing_32px_567163_easyicon.net.png'
 		});
 
 		var marker5 = new AMap.Marker({
 			position: new AMap.LngLat(113.970742,22.589347),
 			title: 'Way5',
-			icon: 'https://gisedu.itc.utwente.nl/student/s6040071/Pedestrian_Crossing_32px_567163_easyicon.net.png'
+			icon: 'assets/img/Pedestrian_Crossing_32px_567163_easyicon.net.png'
 			});
 		
 		var marker6 = new AMap.Marker({
 			position: new AMap.LngLat(113.864595,22.574063),
 			title: 'Des',
-			icon: 'https://gisedu.itc.utwente.nl/student/s6040071/Pedestrian_Crossing_32px_567163_easyicon.net.png'
+			icon: 'assets/img/Pedestrian_Crossing_32px_567163_easyicon.net.png'
 		});
 		
 		var markerList = [marker1, marker2, marker3, marker4, marker5, marker6];
@@ -135,28 +135,28 @@
 	}
     document.querySelector("#s12opt").onclick = opt12
 	
-    //°ó¶¨°´Å¥ÊÂ¼ş£¬¸Ä±äµØÍ¼ÖĞĞÄµã
+    //ç»‘å®šæŒ‰é’®äº‹ä»¶ï¼Œæ”¹å˜åœ°å›¾ä¸­å¿ƒç‚¹
     document.querySelector("#random-center-btn").onclick = function() {
     var drivingOption = {
-        policy: AMap.DrivingPolicy.LEAST_TIME, // ÆäËüpolicy²ÎÊıÇë²Î¿¼ https://lbs.amap.com/api/javascript-api/reference/route-search#m_DrivingPolicy 
+        policy: AMap.DrivingPolicy.LEAST_TIME, // å…¶å®ƒpolicyå‚æ•°è¯·å‚è€ƒ https://lbs.amap.com/api/javascript-api/reference/route-search#m_DrivingPolicy 
     }
 
-    // ¹¹ÔìÂ·Ïßµ¼º½Àà
+    // æ„é€ è·¯çº¿å¯¼èˆªç±»
     var driving = new AMap.Driving(drivingOption)
 
-    // ¸ù¾İÆğÖÕµã¾­Î³¶È¹æ»®¼İ³µµ¼º½Â·Ïß
+    // æ ¹æ®èµ·ç»ˆç‚¹ç»çº¬åº¦è§„åˆ’é©¾è½¦å¯¼èˆªè·¯çº¿
     driving.search(new AMap.LngLat(113.892275,22.559044), new AMap.LngLat(113.890222,22.551852), {
         waypoints:[new AMap.LngLat(113.970742,22.589347),new AMap.LngLat(113.945278,22.551923),new AMap.LngLat(113.935725,22.542756),new AMap.LngLat(113.909707,22.528476),new AMap.LngLat(113.903942,22.559731)]
     }, function(status, result) {
-        // result¼´ÊÇ¶ÔÓ¦µÄ¼İ³µµ¼º½ĞÅÏ¢£¬Ïà¹ØÊı¾İ½á¹¹ÎÄµµÇë²Î¿¼ https://lbs.amap.com/api/javascript-api/reference/route-search#m_DrivingResult
+        // resultå³æ˜¯å¯¹åº”çš„é©¾è½¦å¯¼èˆªä¿¡æ¯ï¼Œç›¸å…³æ•°æ®ç»“æ„æ–‡æ¡£è¯·å‚è€ƒ https://lbs.amap.com/api/javascript-api/reference/route-search#m_DrivingResult
         if (status === 'complete') {
             if (result.routes && result.routes.length) {
-                // »æÖÆµÚÒ»ÌõÂ·Ïß£¬Ò²¿ÉÒÔ°´ĞèÇó»æÖÆÆäËü¼¸ÌõÂ·Ïß
+                // ç»˜åˆ¶ç¬¬ä¸€æ¡è·¯çº¿ï¼Œä¹Ÿå¯ä»¥æŒ‰éœ€æ±‚ç»˜åˆ¶å…¶å®ƒå‡ æ¡è·¯çº¿
                 drawRoute(result.routes[0])
                 log.success('Finished!')
             }
         } else {
-            log.error('Ooops£º' + result)
+            log.error('Ooopsï¼š' + result)
         }
     });
 
@@ -165,13 +165,13 @@
 
         var startMarker = new AMap.Marker({
             position: path[0],
-            icon: 'https://gisedu.itc.utwente.nl/student/s6040071/car_24px_1132259_easyicon.net.png',
+            icon: 'assets/img/car_24px_1132259_easyicon.net.png',
             map: map
         })
 
         var endMarker = new AMap.Marker({
             position: path[path.length - 3],
-            icon: 'https://gisedu.itc.utwente.nl/student/s6040071/Pedestrian_Crossing_32px_567163_easyicon.net.png',
+            icon: 'assets/img/Pedestrian_Crossing_32px_567163_easyicon.net.png',
             map: map
         })
 
@@ -211,43 +211,43 @@
     var marker0 = new AMap.Marker({
         position: new AMap.LngLat(113.892275,22.559044),
         title: 'Driver Location',
-        icon: 'https://gisedu.itc.utwente.nl/student/s6040071/car_24px_1132259_easyicon.net.png'
+        icon: 'assets/img/car_24px_1132259_easyicon.net.png'
 	});
 
     var marker1 = new AMap.Marker({
         position: new AMap.LngLat(113.970742,22.589347),
         title: 'Way01',
-        icon: 'https://gisedu.itc.utwente.nl/student/s6040071/Pedestrian_Crossing_32px_567163_easyicon.net.png'
+        icon: 'assets/img/Pedestrian_Crossing_32px_567163_easyicon.net.png'
 	});
 
     var marker2 = new AMap.Marker({
         position: new AMap.LngLat(113.945278,22.551923),
         title: 'Way02',
-        icon: 'https://gisedu.itc.utwente.nl/student/s6040071/Pedestrian_Crossing_32px_567163_easyicon.net.png'
+        icon: 'assets/img/Pedestrian_Crossing_32px_567163_easyicon.net.png'
 	});
 
     var marker3 = new AMap.Marker({
         position: new AMap.LngLat(113.935725,22.542756),
         title: 'Way03',
-        icon: 'https://gisedu.itc.utwente.nl/student/s6040071/Pedestrian_Crossing_32px_567163_easyicon.net.png'
+        icon: 'assets/img/Pedestrian_Crossing_32px_567163_easyicon.net.png'
 	});
 
     var marker4 = new AMap.Marker({
         position: new AMap.LngLat(113.909707,22.528476),
         title: 'Way04',
-        icon: 'https://gisedu.itc.utwente.nl/student/s6040071/Pedestrian_Crossing_32px_567163_easyicon.net.png'
+        icon: 'assets/img/Pedestrian_Crossing_32px_567163_easyicon.net.png'
 	});
 
     var marker5 = new AMap.Marker({
         position: new AMap.LngLat(113.903942,22.559731),
         title: 'Way05',
-        icon: 'https://gisedu.itc.utwente.nl/student/s6040071/Pedestrian_Crossing_32px_567163_easyicon.net.png'
+        icon: 'assets/img/Pedestrian_Crossing_32px_567163_easyicon.net.png'
 	});
 
     var marker6 = new AMap.Marker({
         position: new AMap.LngLat(113.890222,22.551852),
         title: 'Way06',
-        icon: 'https://gisedu.itc.utwente.nl/student/s6040071/Pedestrian_Crossing_32px_567163_easyicon.net.png'
+        icon: 'assets/img/Pedestrian_Crossing_32px_567163_easyicon.net.png'
 	});
 
 	
@@ -255,7 +255,7 @@
 	map.add(markerList);
     }
 
-    //°ó¶¨°´Å¥ÊÂ¼ş£¬¸Ä±äµØÍ¼²ã¼¶ÓëÖĞĞÄµã
+    //ç»‘å®šæŒ‰é’®äº‹ä»¶ï¼Œæ”¹å˜åœ°å›¾å±‚çº§ä¸ä¸­å¿ƒç‚¹
     document.querySelector("#random-zoomcenter-btn").onclick = function() {
  
     }	
